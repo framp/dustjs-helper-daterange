@@ -1,0 +1,30 @@
+{
+  "name": "dustjs-helper-daterange",
+  "version": "0.0.2",
+  "author": "Federico Rampazzo <frampone@gmail.com> (http://framp.me)",
+  "description": "daterange helper",
+  "keywords": [
+    "templates",
+    "views",
+    "helper",
+    "helpers",
+    "dust",
+    "dustjs",
+    "daterange",
+    "moment",
+    "date",
+    "range"
+  ],
+  "main": "./daterange.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/framp/dust-helper-daterange.git"
+  },
+  "license": "MIT",
+  "engine": {
+    "node": ">=0.5"
+  },
+  "dependencies": {
+    "moment": "^2.7.0"
+  }
+}
