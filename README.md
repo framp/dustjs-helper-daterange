@@ -17,16 +17,10 @@ Loop over a date range providing information for each day inside the loop
 
 ```
 {@daterange start="2014-06-25" end="2015-06-25"}
-{?$first}
-  <h1>{$yearExt}</h1>
-  <div class="year">
-    <h2>{$monthExt}</h2>
-    <ul>
-{/$first}
 {?$newMonth}
-  </ul>
+  {^$first}</ul>{/$first}
   {?$newYear}
-    </div>
+    {^$first}</div>{/$first}
     <h1>{$yearExt}</h1>
     <div class="year">
   {/$newYear}
@@ -36,7 +30,8 @@ Loop over a date range providing information for each day inside the loop
 
 <li>
   {$key}. {$day}-{$month}-{$year}, 
-  {$weekdayExt} - {$weekday} of the week
+  {$weekdayExt} - {$weekday} of the week ({$newWeek}),
+  {$yearsPassed} years, {$monthsPassed} months, {$weeksPassed} weeks
 </li>
 {/daterange}
 ```

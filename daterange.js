@@ -16,34 +16,49 @@
     moment.lang(lan);
     var momentStart = +moment(start);
     var momentEnd = +moment(end);
+    var oldWeek = '';
     var oldMonth = '';
     var oldYear = '';
     var counter = 0;
+    var weeksPassed = 0;
+    var monthsPassed = 0;
+    var yearsPassed = 0;
     for (var i=+momentStart; i<=+momentEnd; i+=1000*60*60*24){
       var current = moment(i);
+      var weekday = current.format(formatWeekday);
       var month = current.format(formatMonth);
       var year = current.format(formatYear);
+      var isNewWeek = (oldWeek>>0 === 6 && weekday>>0 === 0) || counter===0;
+      var isNewMonth = oldMonth !== month;
+      var isNewYear = oldYear !== year;
+      if (isNewWeek) weeksPassed++;
+      if (isNewMonth) monthsPassed++;
+      if (isNewYear) yearsPassed++;
       chunk = body(chunk, context.push({
         $key: counter,
         $day: current.format(formatDay),
         $month: month,
         $year: year,
-        $weekday: current.format(formatWeekday),
+        $weekday: weekday,
         $dayExt: current.format(formatDayExt),
         $monthExt: current.format(formatMonthExt),
         $yearExt: current.format(formatYearExt),
         $weekdayExt: current.format(formatWeekdayExt),
-        $newMonth: oldMonth !== month && oldMonth!=='',
-        $newYear: oldYear !== year && oldYear!=='',
+        $newWeek: isNewWeek,
+        $newMonth: isNewMonth,
+        $newYear: isNewYear,
+        $weeksPassed: weeksPassed,
+        $monthsPassed: monthsPassed,
+        $yearsPassed: yearsPassed,
         $first: counter==0
       }));
+      oldWeek = weekday;
       oldMonth = month;
       oldYear = year;
       counter++;
     }
     return chunk;
   };
-}(
-    typeof exports !== 'undefined' ? module.exports = require('dustjs-linkedin') : dust),
-    moment ? moment : require('moment')
-);
+}(typeof exports !== 'undefined' ? module.exports = require('dustjs-linkedin') : dust,
+  typeof moment !== 'undefined' ? moment : require('moment')
+));
