@@ -1,7 +1,11 @@
 (function (dust, moment) {
   dust.helpers.daterange = function (chunk, context, bodies, params) {
-    var start = dust.helpers.tap(params.start, chunk, context) || Date.now().startOf('day');
-    var end = dust.helpers.tap(params.end, chunk, context) || Date.now().startOf('day');
+    var lan = dust.helpers.tap(params.lan, chunk, context) || 'en-US';
+    moment.lang(lan);
+    
+    var start = dust.helpers.tap(params.start, chunk, context) || moment().startOf('day');
+    var end = dust.helpers.tap(params.end, chunk, context) || moment().startOf('day');
+    var length = dust.helpers.tap(params.length, chunk, context) || false;
     var formatDay = dust.helpers.tap(params.formatDay, chunk, context) || 'D';
     var formatMonth = dust.helpers.tap(params.formatMonth, chunk, context) || 'M';
     var formatYear = dust.helpers.tap(params.formatYear, chunk, context) || 'YY';
@@ -10,10 +14,12 @@
     var formatMonthExt = dust.helpers.tap(params.formatMonthExt, chunk, context) || 'MM';
     var formatYearExt = dust.helpers.tap(params.formatYearExt, chunk, context) || 'YYYY';
     var formatWeekdayExt = dust.helpers.tap(params.formatWeekdayExt, chunk, context) || 'dddd';
-    var lan = dust.helpers.tap(params.lan, chunk, context) || 'en-US';
+    
     var body = bodies.block, chunk;
     
-    moment.lang(lan);
+    if (length) end = moment().startOf('day').add('days', length);
+ console.log(start.toDate(), end.toDate(), length);
+    
     var momentStart = +moment(start);
     var momentEnd = +moment(end);
     var oldWeek = '';

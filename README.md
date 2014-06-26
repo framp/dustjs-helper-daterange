@@ -5,14 +5,14 @@ Loop over a date range providing information for each day inside the loop
 ## Definition
 
 ```
-{@daterange start="2014-06-25" end="2015-06-25" lan='en-US'
-  formatDay="D" formatMonth="M" formatYear="YY" formatWeekDay="d"
-  formatDayExt="DD" formatMonthExt="MM" formatYearExt="YYYY" formatWeekDayExt="dddd"}
-  
+{@daterange start="2014-06-25" end="2015-06-25" length="14" lan='en-US'
+  formatDay="D" formatMonth="M" formatYear="YY" formatWeekday="d"
+  formatDayExt="DD" formatMonthExt="MM" formatYearExt="YYYY" formatWeekdayExt="dddd"}
 {/daterange}
-
-
 ```
+
+If `length` is defined `end` will be overwritten with `start` + `length` days.
+
 ## Examples
 
 ```
