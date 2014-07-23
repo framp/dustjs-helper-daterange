@@ -17,7 +17,7 @@
     
     var body = bodies.block, chunk;
     
-    if (length) end = moment().startOf('day').add('days', length);
+    if (length) end = moment().startOf('day').add('days', length-1);
     
     var momentStart = +moment(start);
     var momentEnd = +moment(end);
