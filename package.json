@@ -18,7 +18,7 @@
   "main": "./daterange.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/framp/dust-helper-daterange.git"
+    "url": "https://github.com/framp/dustjs-helper-daterange.git"
   },
   "license": "MIT",
   "engine": {
