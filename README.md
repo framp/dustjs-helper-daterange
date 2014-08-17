@@ -41,7 +41,7 @@ Depends on dustjs-helpers module to be loaded first since it adds it's definitio
 the dust.helpers property.
 
 In node.js:
-require('dustjs-helper-repeat');
+require('dustjs-helper-daterange');
 
 In browser:
 
