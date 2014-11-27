@@ -19,8 +19,8 @@
     
     if (length) end = moment().startOf('day').add(length-1, 'days');
     
-    var momentStart = +moment(start);
-    var momentEnd = +moment(end);
+    var momentStart = +moment(new Date(start));
+    var momentEnd = +moment(new Date(end));
     var oldWeek = '';
     var oldMonth = '';
     var oldYear = '';
