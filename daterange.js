@@ -1,7 +1,7 @@
 (function (dust, moment) {
   dust.helpers.daterange = function (chunk, context, bodies, params) {
     var lan = dust.helpers.tap(params.lan, chunk, context) || 'en-US';
-    moment.lang(lan);
+    moment.locale(lan);
     
     var start = dust.helpers.tap(params.start, chunk, context) || moment().startOf('day');
     var end = dust.helpers.tap(params.end, chunk, context) || moment().startOf('day');
