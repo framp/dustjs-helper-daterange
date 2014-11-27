@@ -1,6 +1,6 @@
 {
   "name": "dustjs-helper-daterange",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "author": "Federico Rampazzo <frampone@gmail.com> (http://framp.me)",
   "description": "daterange helper",
   "keywords": [
@@ -25,6 +25,6 @@
     "node": ">=0.5"
   },
   "dependencies": {
-    "moment": "^2.7.0"
+    "moment": "^2.8.4"
   }
 }
