@@ -1,7 +1,11 @@
 {
   "name": "dustjs-helper-daterange",
-  "version": "0.0.13",
-  "author": "Federico Rampazzo <frampone@gmail.com> (http://framp.me)",
+  "version": "0.0.14",
+  "author": {
+    "name": "Federico Rampazzo",
+    "email": "frampone@gmail.com",
+    "url": "http://framp.me"
+  },
   "description": "daterange helper",
   "keywords": [
     "templates",
@@ -26,5 +30,32 @@
   },
   "dependencies": {
     "moment": "^2.8.4"
-  }
+  },
+  "gitHead": "b1f787c58a3a1c447ac148e066b78b031fcd8f60",
+  "bugs": {
+    "url": "https://github.com/framp/dustjs-helper-daterange/issues"
+  },
+  "homepage": "https://github.com/framp/dustjs-helper-daterange",
+  "_id": "dustjs-helper-daterange@0.0.13",
+  "scripts": {},
+  "_shasum": "57b15480680c1246392db1d4f1b53274189bd77c",
+  "_from": "dustjs-helper-daterange@0.0.13",
+  "_npmVersion": "2.7.4",
+  "_nodeVersion": "0.12.2",
+  "_npmUser": {
+    "name": "framp",
+    "email": "frampone@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "framp",
+      "email": "frampone@gmail.com"
+    }
+  ],
+  "dist": {
+    "shasum": "57b15480680c1246392db1d4f1b53274189bd77c",
+    "tarball": "http://registry.npmjs.org/dustjs-helper-daterange/-/dustjs-helper-daterange-0.0.13.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/dustjs-helper-daterange/-/dustjs-helper-daterange-0.0.13.tgz"
 }

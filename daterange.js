@@ -7,7 +7,6 @@
         dow: firstDay
       }
     });
-    
     var start = dust.helpers.tap(params.start, chunk, context) || moment().startOf('day');
     var end = dust.helpers.tap(params.end, chunk, context) || moment().startOf('day');
     var length = dust.helpers.tap(params.length, chunk, context) || false;
@@ -38,7 +37,7 @@
       var weekday = current.format(formatWeekday);
       var month = current.format(formatMonth);
       var year = current.format(formatYear);
-      var isNewWeek = (oldWeek>>0 === 6 && weekday>>0 === 0) || counter===0;
+      var isNewWeek = (oldWeek>>0 === (6+firstDay)%7 && weekday>>0 === firstDay) || counter===0;
       var isNewMonth = oldMonth !== month;
       var isNewYear = oldYear !== year;
       if (isNewWeek) weeksPassed++;
