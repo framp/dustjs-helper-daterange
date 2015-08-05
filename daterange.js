@@ -1,7 +1,12 @@
 (function (dust, moment) {
   dust.helpers.daterange = function (chunk, context, bodies, params) {
     var lan = dust.helpers.tap(params.lan, chunk, context) || 'en-US';
-    moment.locale(lan);
+    var firstDay = parseInt(dust.helpers.tap(params.firstDay, chunk, context)) || 0;
+    moment.locale(lan, { 
+      week: {
+        dow: firstDay
+      }
+    });
     
     var start = dust.helpers.tap(params.start, chunk, context) || moment().startOf('day');
     var end = dust.helpers.tap(params.end, chunk, context) || moment().startOf('day');
@@ -29,7 +34,7 @@
     var monthsPassed = 0;
     var yearsPassed = 0;
     for (var i=+momentStart; i<=+momentEnd; i+=1000*60*60*24){
-      var current = moment(i);
+      var current = moment(new Date(i));
       var weekday = current.format(formatWeekday);
       var month = current.format(formatMonth);
       var year = current.format(formatYear);
